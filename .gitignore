@@ -1,4 +1,4 @@
 mysql/data
 redis/data
-teamcity/data
-teamcity/logs
+teamcity/server/data
+teamcity/server/logs

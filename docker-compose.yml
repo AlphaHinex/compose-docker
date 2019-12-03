@@ -33,7 +33,7 @@ teamcity-server:
     - TEAMCITY_CONTEXT=teamcity
     - TEAMCITY_DATA_PATH=/data/teamcity_server/datadir
     - TEAMCITY_SERVER_MEM_OPTS=-Xmx2g -XX:MaxPermSize=270m -XX:ReservedCodeCacheSize=350m
-  # entrypoint: /entrypoint.sh
+  entrypoint: /entrypoint.sh
   ports:
     - "8111:8111"
 
