@@ -6,4 +6,4 @@ git:4.0.0
 matrix-project:1.14
 ssh-credentials:1.18
 sonar:2.10
-blueocea:1.21.0
+blueocean:1.21.0
