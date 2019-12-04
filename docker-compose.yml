@@ -37,6 +37,12 @@ teamcity-server:
   ports:
     - "8111:8111"
 
+jenkins:
+  image: alphahinex/compose-docker:jenkins-lts
+  ports:
+    - "8080:8080"
+    - "50000:50000"
+
 nexus:
   image: sonatype/nexus3
   volumes:
