@@ -1,0 +1,8 @@
+credentials:2.3.0
+mailer:1.29
+scm-api:2.6.3
+git-client:3.0.0
+git:4.0.0
+matrix-project:1.14
+ssh-credentials:1.18
+sonar:2.10

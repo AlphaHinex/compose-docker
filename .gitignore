@@ -1,3 +1,5 @@
+.DS_Store
+
 mysql/data
 redis/data
 teamcity/server/data
