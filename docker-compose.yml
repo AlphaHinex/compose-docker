@@ -37,6 +37,14 @@ teamcity-server:
   ports:
     - "8111:8111"
 
+teamcity-agent:
+  image: jetbrains/teamcity-agent:2019.1.5
+  links:
+    - redis
+    - teamcity-server
+  environment:
+    - SERVER_URL=http://teamcity-server:8111
+
 jenkins:
   image: alphahinex/compose-docker:jenkins-lts
   ports:
