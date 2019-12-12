@@ -20,6 +20,11 @@ mysql:
   ports:
     - "3306:3306"
 
+youtrack:
+  image: jetbrains/youtrack:2019.2.61843
+  ports:
+    - "8080:8080"
+
 teamcity-server:
   image: jetbrains/teamcity-server:2019.1.5
   links:
