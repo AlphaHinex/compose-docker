@@ -22,6 +22,11 @@ mysql:
 
 youtrack:
   image: jetbrains/youtrack:2019.2.61843
+  volumes:
+    - ./youtrack/data:/opt/youtrack/data
+    - ./youtrack/conf:/opt/youtrack/conf
+    - ./youtrack/logs:/opt/youtrack/logs
+    - ./youtrack/backups:/opt/youtrack/backups
   ports:
     - "8080:8080"
 

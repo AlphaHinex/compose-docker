@@ -1,6 +1,13 @@
 .DS_Store
 
 mysql/data
+
 redis/data
+
 teamcity/server/data
 teamcity/server/logs
+
+youtrack/data
+youtrack/conf
+youtrack/logs
+youtrack/backups
