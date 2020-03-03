@@ -74,3 +74,14 @@ nacos:
     - MODE=standalone
   ports:
     - "8848:8848"
+
+gitlab:
+  image: gitlab/gitlab-ce:12.8.1-ce.0
+    volumes:
+    - ./gitlab/opt:/var/opt/gitlab
+    - ./gitlab/log:/var/log/gitlab
+    - ./gitlab/etc:/etc/gitlab
+  ports:
+    - "80:80"
+    - "443:443"
+    - "22:22"
