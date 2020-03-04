@@ -77,11 +77,14 @@ nacos:
 
 gitlab:
   image: gitlab/gitlab-ce:12.8.1-ce.0
-    volumes:
+  volumes:
     - ./gitlab/opt:/var/opt/gitlab
     - ./gitlab/log:/var/log/gitlab
     - ./gitlab/etc:/etc/gitlab
+  # Use external_url to modify the container id in clone path
+  # environment:
+  #   - GITLAB_OMNIBUS_CONFIG=external_url 'http://192.168.16.100:7780'
   ports:
-    - "80:80"
-    - "443:443"
-    - "22:22"
+    - "7780:7780"
+    - "7443:443"
+    - "7722:22"
