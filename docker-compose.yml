@@ -90,3 +90,11 @@ gitlab:
     - "7780:7780"
     - "7443:443"
     - "7722:22"
+
+nginx:
+  image: nginx:1.17.9
+  volumes:
+    - ./nginx:/usr/share/nginx/file_server
+    - ./nginx/file_server.conf:/etc/nginx/conf.d/file_server.conf
+  ports:
+    - "2020:2020"
