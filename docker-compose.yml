@@ -96,5 +96,8 @@ nginx:
   volumes:
     - ./nginx:/usr/share/nginx/file_server
     - ./nginx/file_server.conf:/etc/nginx/conf.d/file_server.conf
+    - ./nginx:/usr/share/nginx/fb_sep
+    - ./nginx/fb_sep.conf:/etc/nginx/conf.d/fb_sep.conf
   ports:
     - "2020:2020"
+    - "8000:8000"
