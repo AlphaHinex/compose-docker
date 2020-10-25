@@ -102,3 +102,8 @@ nginx:
   ports:
     - "2020:2020"
     - "8000:8000"
+
+zoo:
+  image: zookeeper:3.6.1
+  ports:
+    - 2181:2181
