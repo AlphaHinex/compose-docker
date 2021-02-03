@@ -1,4 +1,4 @@
-FROM teamcity-agent:2020.2.2 
+FROM jetbrains/teamcity-agent:2020.2.2 
 MAINTAINER Alpha Hinex <AlphaHinex@gmail.com>
 
 # Install Node.js v12.x
