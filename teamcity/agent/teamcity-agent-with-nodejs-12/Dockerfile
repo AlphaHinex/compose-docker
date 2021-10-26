@@ -1,4 +1,4 @@
-FROM jetbrains/teamcity-agent:2020.2.2
+FROM jetbrains/teamcity-agent:2021.2
 MAINTAINER Alpha Hinex <AlphaHinex@gmail.com>
 
 USER root
