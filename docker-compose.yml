@@ -54,7 +54,7 @@ teamcity-agent:
     - redis
     - teamcity-server
   environment:
-    - SERVER_URL=http://teamcity-server:8111
+    - SERVER_URL=http://teamcity-server:8111/teamcity
 
 jenkins:
   image: alphahinex/compose-docker:jenkins-lts
