@@ -3,10 +3,10 @@ set -e
 
 mkdir -p $TEAMCITY_DATA_PATH/lib/jdbc $TEAMCITY_DATA_PATH/config $TEAMCITY_DATA_PATH/plugins
 
-if [ ! -f "$TEAMCITY_DATA_PATH/lib/jdbc/mysql-connector-java-5.1.48.jar" ];
+if [ ! -f "$TEAMCITY_DATA_PATH/lib/jdbc/mysql-connector-java.jar" ];
 then
     echo "Downloading mysql JDBC driver..."
-    curl -o $TEAMCITY_DATA_PATH/lib/jdbc/mysql-connector-java-5.1.48.jar https://repo.gradle.org/gradle/libs/mysql/mysql-connector-java/5.1.48/mysql-connector-java-5.1.48.jar
+    curl -o $TEAMCITY_DATA_PATH/lib/jdbc/mysql-connector-java.jar $MYSQL_DRIVER_URL 
 fi
 
 if [ -d "/opt/teamcity/webapps/ROOT" ];

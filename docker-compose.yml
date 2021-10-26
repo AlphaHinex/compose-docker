@@ -8,7 +8,7 @@ redis:
     - "6379:6379"
 
 mysql:
-  image: mysql:5.7.28
+  image: mysql:5.7.34
   volumes:
     - ./mysql/data:/var/lib/mysql
     - ./mysql/conf:/etc/mysql/conf.d
@@ -21,7 +21,7 @@ mysql:
     - "3306:3306"
 
 youtrack:
-  image: jetbrains/youtrack:2019.2.61843
+  image: jetbrains/youtrack:2021.3.30245
   volumes:
     - ./youtrack/data:/opt/youtrack/data
     - ./youtrack/conf:/opt/youtrack/conf
@@ -31,7 +31,7 @@ youtrack:
     - "8080:8080"
 
 teamcity-server:
-  image: jetbrains/teamcity-server:2019.1.5
+  image: jetbrains/teamcity-server:2021.2
   links:
     - mysql
   volumes:
@@ -40,6 +40,7 @@ teamcity-server:
     - ./teamcity/server/entrypoint.sh:/entrypoint.sh
   environment:
     # Modify as will
+    - MYSQL_DRIVER_URL=https://repo.gradle.org/gradle/libs/mysql/mysql-connector-java/5.1.48/mysql-connector-java-5.1.48.jar
     - TEAMCITY_CONTEXT=teamcity
     - TEAMCITY_DATA_PATH=/data/teamcity_server/datadir
     - TEAMCITY_SERVER_MEM_OPTS=-Xmx2g -XX:MaxPermSize=270m -XX:ReservedCodeCacheSize=350m
@@ -48,7 +49,7 @@ teamcity-server:
     - "8111:8111"
 
 teamcity-agent:
-  image: jetbrains/teamcity-agent:2019.1.5
+  image: jetbrains/teamcity-agent:2021.2
   links:
     - redis
     - teamcity-server
