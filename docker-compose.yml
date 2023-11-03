@@ -113,3 +113,11 @@ sonar:
   image: sonarqube:7.9.5-community
   ports:
     - 9000:9000
+
+mongo:
+  image: mongo:4.4.23
+  environment:
+    MONGO_INITDB_ROOT_USERNAME: root
+    MONGO_INITDB_ROOT_PASSWORD: example
+  ports:
+    - 27017:27017
