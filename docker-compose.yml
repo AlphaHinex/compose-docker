@@ -1,3 +1,12 @@
+rabbitmq:
+  image: rabbitmq:3.11.11
+  environment:
+    - RABBITMQ_DEFAULT_USER=tsd
+    - RABBITMQ_DEFAULT_PASS=tsd
+  ports:
+    - 30610:5672
+    - 15672:15672
+
 redis:
   image: redis:5.0.6
   volumes:
