@@ -1,0 +1,86 @@
+version: "3.8"
+
+services:
+  redis-7000:
+    image: redis:8.2.2
+    privileged: true
+    container_name: redis-7000
+    ports:
+      - 7000:7000
+      - 17000:17000
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+      - ./7000/data:/data
+    command: redis-server /usr/local/etc/redis/redis.conf --cluster-announce-ip ${LOCALHOST_IP} --port 7000
+
+  redis-7001:
+    image: redis:8.2.2
+    privileged: true
+    container_name: redis-7001
+    ports:
+      - 7001:7001
+      - 17001:17001
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+      - ./7001/data:/data
+    command: redis-server /usr/local/etc/redis/redis.conf --cluster-announce-ip ${LOCALHOST_IP} --port 7001
+
+  redis-7002:
+    image: redis:8.2.2
+    privileged: true
+    container_name: redis-7002
+    ports:
+      - 7002:7002
+      - 17002:17002
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+      - ./7002/data:/data
+    command: redis-server /usr/local/etc/redis/redis.conf --cluster-announce-ip ${LOCALHOST_IP} --port 7002
+
+  redis-7003:
+    image: redis:8.2.2
+    privileged: true
+    container_name: redis-7003
+    ports:
+      - 7003:7003
+      - 17003:17003
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+      - ./7003/data:/data
+    command: redis-server /usr/local/etc/redis/redis.conf --cluster-announce-ip ${LOCALHOST_IP} --port 7003
+
+  redis-7004:
+    image: redis:8.2.2
+    privileged: true
+    container_name: redis-7004
+    ports:
+      - 7004:7004
+      - 17004:17004
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+      - ./7004/data:/data
+    command: redis-server /usr/local/etc/redis/redis.conf --cluster-announce-ip ${LOCALHOST_IP} --port 7004
+
+  redis-7005:
+    image: redis:8.2.2
+    privileged: true
+    container_name: redis-7005
+    ports:
+      - 7005:7005
+      - 17005:17005
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+      - ./7005/data:/data
+    command: redis-server /usr/local/etc/redis/redis.conf --cluster-announce-ip ${LOCALHOST_IP} --port 7005
+
+  redis-cluster-creator:
+    image: redis:8.2.2
+    privileged: true
+    depends_on:
+      - redis-7000
+      - redis-7001
+      - redis-7002
+      - redis-7003
+      - redis-7004
+      - redis-7005
+    command: redis-cli --cluster create ${LOCALHOST_IP}:7000 ${LOCALHOST_IP}:7001 ${LOCALHOST_IP}:7002 ${LOCALHOST_IP}:7003 ${LOCALHOST_IP}:7004 ${LOCALHOST_IP}:7005 --cluster-replicas 1 --cluster-yes
