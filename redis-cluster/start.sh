@@ -11,4 +11,11 @@ if [ -z "$LOCALHOST_IP" ]; then
     fi
 fi
 echo $LOCALHOST_IP
-LOCALHOST_IP=$LOCALHOST_IP docker-compose up -d
+
+COMPOSE_CMD="docker compose"
+
+if docker-compose --version >/dev/null 2>&1; then
+    COMPOSE_CMD="docker-compose"
+fi
+
+LOCALHOST_IP=$LOCALHOST_IP $COMPOSE_CMD up -d
