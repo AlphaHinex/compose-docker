@@ -11,4 +11,4 @@ if [ -z "$LOCALHOST_IP" ]; then
     fi
 fi
 echo $LOCALHOST_IP
-docker-compose up -d
+LOCALHOST_IP=$LOCALHOST_IP docker-compose up -d
