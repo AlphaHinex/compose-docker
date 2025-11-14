@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Allow LOCALHOST_IP to be set via environment, otherwise detect automatically
 if [ -z "$LOCALHOST_IP" ]; then
     OS_TYPE="$(uname)"
